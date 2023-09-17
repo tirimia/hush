@@ -2,8 +2,8 @@
 
 ;; Author: Theodor-Alexandru Irimia
 ;; Maintainer: Theodor-Alexandru Irimia
-;; Version: 0.1.0
-;; Package-Requires: ((emacs 27))
+;; Version: 0.1.1
+;; Package-Requires: ((emacs "27.1"))
 ;; Homepage: https://github.com/tirimia/hush
 ;; Keywords: extensions lisp local tools
 
