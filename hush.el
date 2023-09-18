@@ -26,9 +26,10 @@
 
 ;;; Commentary:
 
-;; hush.el is a pluggable secret manager made for outsourcing the storing secrets
-;; as your configuration might be in version control and most of your secrets
-;; kept in a password manager, like the creator/maintainer of this package.
+;; hush.el helps abstract getting data out of external password managers
+;; By default, supports manual input and the 1password-cli tool.
+;; You can add support for your own preferred tool by writing your own
+;; handler function and appending it together with its name to the hush-engine-alist
 
 ;;; Code:
 
