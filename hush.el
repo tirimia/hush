@@ -118,11 +118,9 @@ If ENGINE given, use it to fetch the secret instead of `hush-default-engine'."
 (defun hush-clear-cache ()
   "Clears the secret cache."
   (interactive)
-  (if hush-cache
-      (progn
-        (funcall hush-cache 'flush)
-        (message "Cache of %s cleared successfully" hush-cache))
-    (message "`hush-cache' is not configured")))
+  (unless hush-cache (user-error "`hush-cache' is not configured"))
+  (funcall hush-cache 'flush)
+  (message "Cache of %s cleared successfully" hush-cache))
 
 (provide 'hush)
 ;;; hush.el ends here
