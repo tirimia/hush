@@ -63,6 +63,6 @@ jobs:
         version: ${{ matrix.emacs_version }}
     - uses: leotaku/elisp-check@master
       with:
-        file: elisp-check.el
+        file: hush.el
         check: ${{ matrix.check }}
         ignore_warnings: ${{ matrix.ignore_warnings }}
