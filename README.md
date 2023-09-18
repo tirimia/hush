@@ -2,6 +2,13 @@
 
 A convenient and extensible interface for fetching secrets from external password managers.
 
+## Motivation
+
+Most of us use a password manager of sorts to store secrets.
+Getting the contents of such secrets while we are in Emacs can get annoying and will cause a context switch.
+
+This library was created to make the process smoother and customizable to anyone's needs.
+
 ## Installation
 Either download [the library](hush.el) to your `load-path` or use straight/your-favorite-package-manager
 ```emacs-lisp
@@ -10,7 +17,9 @@ Either download [the library](hush.el) to your `load-path` or use straight/your-
 ```
 
 ## Fetching secrets
-`hush-get` is the bread and butter of this library. Use it to fetch your secrets by passing the individual engines their required parameters.
+`hush-get` is the bread and butter of this library.
+
+Use it to fetch your secrets by passing the individual engines their required parameters.
 
 Here are a few examples:
 ```emacs-lisp
