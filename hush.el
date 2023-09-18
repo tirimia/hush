@@ -32,6 +32,8 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'subr-x))
+
 (defgroup hush nil
   "Settings for `hush.el'."
   :link '(url-link "https://github.com/tirimia/hush")
