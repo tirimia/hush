@@ -19,13 +19,6 @@ jobs:
           - 29.1
           - release-snapshot
           - snapshot
-        ignore_warnings:
-          - false
-        check:
-          - melpa
-          - load-file
-          - byte-compile
-          - checkdoc
     steps:
     - uses: actions/checkout@v3
     - uses: purcell/setup-emacs@master
@@ -34,5 +27,6 @@ jobs:
     - uses: leotaku/elisp-check@master
       with:
         file: hush.el
-        check: ${{ matrix.check }}
-        ignore_warnings: ${{ matrix.ignore_warnings }}
+        check: melpa
+        ignore_warnings: false
+        warnings_as_errors: true
