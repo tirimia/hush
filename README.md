@@ -1,6 +1,6 @@
-# hush.el - Pluggable secret manager
+# hush.el - Fetch and cache _your_ secrets _your_ way.
 
-Fetch and cache _your_ secrets _your_ way.
+A convenient and extensible interface for fetching secrets from external password managers.
 
 ## Installation
 Either download [the library](hush.el) to your `load-path` or use straight/your-favorite-package-manager
