@@ -6,38 +6,7 @@ on:
       - main
 
 jobs:
-  test-melpa:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        emacs_version:
-          - 27.1
-          - 27.2
-          - 28.1
-          - 28.2
-          - 29.1
-          - release-snapshot
-        ignore_warnings:
-          - true
-        check:
-          - melpa
-        include:
-          - emacs_version: snapshot
-            check: melpa
-            ignore_warnings: false
-    steps:
-    - uses: actions/checkout@v3
-    - uses: purcell/setup-emacs@master
-      with:
-        version: ${{ matrix.emacs_version }}
-    - uses: leotaku/elisp-check@master
-      with:
-        file: hush.el
-        check: ${{ matrix.check }}
-        ignore_warnings: ${{ matrix.ignore_warnings }}
-
-  test-builtin:
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -51,8 +20,9 @@ jobs:
           - release-snapshot
           - snapshot
         ignore_warnings:
-          - true
+          - false
         check:
+          - melpa
           - load-file
           - byte-compile
           - checkdoc
