@@ -20,33 +20,36 @@ jobs:
           - release-snapshot
           - snapshot
     steps:
-    - uses: actions/checkout@v3
-    - uses: purcell/setup-emacs@master
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Get emacs ${{ matrix.emacs_version }}
+      uses: purcell/setup-emacs@master
       with:
         version: ${{ matrix.emacs_version }}
-    - uses: leotaku/elisp-check@master
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install melpazoid
+      run: |
+        python -m pip install --upgrade pip
+        git clone https://github.com/riscy/melpazoid.git ~/melpazoid
+        pip install ~/melpazoid
+
+    - name: Elisp Check
+      uses: leotaku/elisp-check@master
       with:
         file: hush.el
         check: melpa
         ignore_warnings: false
         warnings_as_errors: true
-  melpazoid:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install
-      run: |
-        python -m pip install --upgrade pip
-        sudo apt-get install emacs && emacs --version
-        git clone https://github.com/riscy/melpazoid.git ~/melpazoid
-        pip install ~/melpazoid
-    - name: Run
+
+    - name: Run Melpazoid
       env:
         LOCAL_REPO: ${{ github.workspace }}
         RECIPE: (hush :repo "tirimia/hush" :fetcher github)
         EXIST_OK: true
-      run: echo $GITHUB_REF && make -C ~/melpazoid
+      run: make -C ~/melpazoid
