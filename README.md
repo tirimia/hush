@@ -24,16 +24,16 @@ Use it to fetch your secrets by passing the individual engines their required pa
 Here are a few examples:
 ```emacs-lisp
 (setq secret-we-put-in-by-hand (hush-get "put secret here" "prompt"))
-(setq cool-secret-in-onepassword (hush-get '(:vault "private" "github.com/secretpat") "1password"))
+(setq cool-secret-in-onepassword (hush-get '(:vault "private" :path "github.com/secretpat") "1password"))
 ```
 
 With a set `hush-default-engine`, you can just pass the parameters:
 ```emacs-lisp
 (setq hush-default-engine "1password")
-(setq cool-secret-in-onepassword (hush-get '(:vault "private" "github.com/secretpat")))
+(setq cool-secret-in-onepassword (hush-get '(:vault "private" :path "github.com/secretpat")))
 
 (let ((hush-default-engine "1password"))
-    (setq cool-secret-in-onepassword (hush-get '(:vault "private" "github.com/secretpat"))))
+    (setq cool-secret-in-onepassword (hush-get '(:vault "private" :path "github.com/secretpat"))))
 ```
 
 ## Configuration
