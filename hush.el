@@ -78,9 +78,10 @@ Keys are the names and values are their callback functions."
 PARAMETERS is a plist containing keys :vault and :path.
 Requires the 1password-cli command line tool to be installed and configured."
   (unless (locate-file "op" exec-path) (user-error "Could not find `op` in `exec-path'"))
-  (let ((vault (plist-get parameters :vault))
-        (path (plist-get parameters :path)))
-    (shell-command-to-string (format "op read op://%s/%s -n" vault path))))
+  (if-let ((vault (plist-get parameters :vault))
+           (path (plist-get parameters :path)))
+      (shell-command-to-string (format "op read op://%s/%s -n" vault path))
+    (user-error "Error: hush-1password - parameters %S malformed, requires :vault and :path" parameters)))
 
 (defun hush--default-cache (action &optional secret engine value)
   "Run ACTION on the `hush-cache'.
