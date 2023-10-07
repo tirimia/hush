@@ -7,7 +7,18 @@ A convenient and extensible interface for fetching secrets from external passwor
 Most of us use a password manager of sorts to store secrets.
 Getting the contents of such secrets while we are in Emacs can get annoying and will cause a context switch.
 
-This library was created to make the process smoother and customizable to anyone's needs.
+This library was created as an alternative to the native [auth-source](https://www.gnu.org/software/emacs/manual/html_mono/auth.html) package
+
+### What *hush* does differently
+
+Secret-shape agnostic way we integrate engines
+> It allows us to retrieve any kinds of data structures (not just strings) from the backends leading to a better developer experience.
+
+No magic integrations
+> Hush is intended to be used as a utility library more than a ready solution. That means protocols like TRAMP won't load credentials automatically via hush
+
+Configurable cache
+> Not dependent on `password-cache.el', and you can write your own caching mechanism
 
 ## Installation
 Either download [the library](hush.el) to your `load-path` or use straight/your-favorite-package-manager
