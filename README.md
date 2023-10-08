@@ -1,4 +1,7 @@
 # hush.el - Fetch and cache _your_ secrets _your_ way.
+![GitHub](https://img.shields.io/github/license/tirimia/hush)
+[![MELPA](https://melpa.org/packages/hush-badge.svg)](https://melpa.org/#/hush)
+[![MELPA Stable](https://stable.melpa.org/packages/hush-badge.svg)](https://stable.melpa.org/#/hush)
 
 A convenient and extensible interface for fetching secrets from external password managers.
 
@@ -21,10 +24,10 @@ Configurable cache
 > Not dependent on `password-cache.el', and you can write your own caching mechanism
 
 ## Installation
-Either download [the library](hush.el) to your `load-path` or use straight/your-favorite-package-manager
+This package is available on [MELPA](https://melpa.org/#/hush) and [MELPA Stable](https://stable.melpa.org/#/hush)
+
 ```emacs-lisp
-(straight-use-package
- '(hush :type git :host github :repo "tirimia/hush"))
+(use-package hush)
 ```
 
 ## Fetching secrets

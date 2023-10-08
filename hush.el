@@ -1,8 +1,8 @@
-;;; hush.el --- Pluggable secret manager -*- lexical-binding: t -*-
+;;; hush.el --- Pluggable secret manager (auth-source alternative) -*- lexical-binding: t -*-
 
 ;; Author: Theodor-Alexandru Irimia
 ;; Maintainer: Theodor-Alexandru Irimia
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Package-Requires: ((emacs "27.1"))
 ;; Homepage: https://github.com/tirimia/hush
 ;; Keywords: extensions lisp local tools
